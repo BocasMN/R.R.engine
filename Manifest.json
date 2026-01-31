@@ -1,0 +1,9 @@
+{
+  "name": "MRE · R.R ANALYSIS",
+  "short_name": "R.R ANALYSIS",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#05070c",
+  "theme_color": "#00ffd0",
+  "icons": []
+}
