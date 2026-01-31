@@ -1,16 +1,32 @@
-const json = await res.json();
+const btn = document.getElementById("scanBtn");
 
-document.getElementById("estado").textContent =
-  json.estado_energetico;
+btn.addEventListener("click", async () => {
+  btn.classList.add("active");
 
-document.getElementById("frequencia").textContent =
-  json.frequencia_operacional;
+  const texto = document.getElementById("evento").value;
 
-document.getElementById("sinais").textContent =
-  json.sinais_confirmados;
+  const res = await fetch("/.netlify/functions/analyze", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ input: texto })
+  });
 
-document.getElementById("leitura").textContent =
-  json.leitura_dominante;
+  const json = await res.json();
 
-document.getElementById("linhas").textContent =
-  json.linhas_realidade;
+  document.getElementById("estado").textContent =
+    json.estado_energetico || "—";
+
+  document.getElementById("frequencia").textContent =
+    json.frequencia_operacional || "—";
+
+  document.getElementById("sinais").textContent =
+    json.sinais_confirmados || "—";
+
+  document.getElementById("leitura").textContent =
+    json.leitura_dominante || "—";
+
+  document.getElementById("linhas").textContent =
+    json.linhas_realidade || "—";
+
+  btn.classList.remove("active");
+});
