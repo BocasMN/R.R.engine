@@ -1,0 +1,99 @@
+:root {
+  --bg: #05070c;
+  --bg-noise: radial-gradient(circle at 30% 30%, rgba(0,255,200,0.03), transparent 60%);
+  --text: #d8fdf5;
+  --accent: #00ffd0;
+  --dim: #6b8f8a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background:
+    var(--bg-noise),
+    linear-gradient(180deg, #03050a, #05070c);
+  color: var(--text);
+  font-family: system-ui, sans-serif;
+  letter-spacing: 0.04em;
+}
+
+.core {
+  min-height: 100vh;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.top h1 {
+  margin: 0;
+  font-size: 1.3rem;
+  text-transform: uppercase;
+}
+
+.subtitle {
+  font-size: 0.75rem;
+  color: var(--dim);
+}
+
+.energy-zones {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.zone {
+  border-left: 2px solid rgba(0,255,200,0.2);
+  padding-left: 12px;
+}
+
+.zone label {
+  display: block;
+  font-size: 0.65rem;
+  color: var(--dim);
+  margin-bottom: 4px;
+}
+
+.zone output {
+  font-size: 0.9rem;
+  color: var(--accent);
+}
+
+.scan {
+  margin-top: auto;
+  padding: 16px;
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid rgba(0,255,200,0.3);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.scan::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(0,255,200,0.2),
+    transparent
+  );
+  transform: translateX(-100%);
+}
+
+.scan.active::after {
+  animation: sweep 1.6s linear infinite;
+}
+
+@keyframes sweep {
+  to {
+    transform: translateX(100%);
+  }
+}
