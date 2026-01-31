@@ -1,22 +1,16 @@
-const btn = document.getElementById("scanBtn");
+const json = await res.json();
 
-btn.addEventListener("click", async () => {
-  btn.classList.add("active");
+document.getElementById("estado").textContent =
+  json.estado_energetico;
 
-  const res = await fetch("/.netlify/functions/analyze", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ timestamp: Date.now() })
-  });
+document.getElementById("frequencia").textContent =
+  json.frequencia_operacional;
 
-  const json = await res.json();
+document.getElementById("sinais").textContent =
+  json.sinais_confirmados;
 
-  // Simulação estrutural (até ligares GPT real)
-  document.getElementById("estado").textContent = "Estável";
-  document.getElementById("frequencia").textContent = "Alta coerência";
-  document.getElementById("sinais").textContent = "Confirmados";
-  document.getElementById("leitura").textContent = "Dominância ativa";
-  document.getElementById("linhas").textContent = "Convergentes";
+document.getElementById("leitura").textContent =
+  json.leitura_dominante;
 
-  btn.classList.remove("active");
-});
+document.getElementById("linhas").textContent =
+  json.linhas_realidade;
