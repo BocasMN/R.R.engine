@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MRE · R.R ANALYSIS</title>
+
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <main class="core">
+
+    <header class="top">
+      <h1>MRE · R.R ANALYSIS</h1>
+      <span class="subtitle">Leitura sistémica de eventos</span>
+    </header>
+
+    <section class="energy-zones">
+      <div class="zone">
+        <label>Estado Energético do Evento</label>
+        <output id="estado">—</output>
+      </div>
+
+      <div class="zone">
+        <label>Frequência Operacional</label>
+        <output id="frequencia">—</output>
+      </div>
+
+      <div class="zone">
+        <label>Sinais Confirmados</label>
+        <output id="sinais">—</output>
+      </div>
+
+      <div class="zone">
+        <label>Leitura Dominante</label>
+        <output id="leitura">—</output>
+      </div>
+
+      <div class="zone">
+        <label>Linhas de Realidade</label>
+        <output id="linhas">—</output>
+      </div>
+    </section>
+
+    <button id="scanBtn" class="scan">
+      Extrair Núcleo Analítico
+    </button>
+
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
